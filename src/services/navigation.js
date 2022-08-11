@@ -4,6 +4,7 @@ import HorizontalNavBar from "../components/horizontalNavBar/horizontalNavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HomeContainer from "../screens/homeContainer/homeContainer";
 import FormLogin from "../screens/formLogin/formLogin";
+import FormRegister from "../screens/formRegister/formRegister";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Counter from "../screens/counter/counter";
 
@@ -16,6 +17,7 @@ function Navigation() {
           <Routes>
             <Route path="/" element={<HomeContainer />} />
             <Route path="/login" element={<FormLogin />} />
+            <Route path="/register" element={<FormRegister />} />
             <Route path="/counter" element={<Counter />} />
           </Routes>
         </div>
