@@ -1,6 +1,6 @@
 export const API_ATH = {
   LOGIN: "/authaccount/login",
-  REGISTER: "baseball/hitsSingleSeason",
+  REGISTER: "/authaccount/registration",
   USERS: "/users ",
 };
 

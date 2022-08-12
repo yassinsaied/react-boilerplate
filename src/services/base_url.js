@@ -1,3 +1,3 @@
 export const API_DATABASE_URL = {
-  API_TEST: "https://api.sampleapis.com/",
+  API_TEST: "http://restapi.adequateshop.com/api",
 };
