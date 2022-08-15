@@ -1,9 +1,12 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { login } from "../../services/authService";
+// import { login } from "../../services/authService";
+import { useDispatch, useSelector } from "react-redux";
 
 function LoginForm() {
+  const dispatch = useDispatch();
+  const { auth } = useSelector((state) => state);
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -23,14 +26,15 @@ function LoginForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    login(credentials);
+    dispatch.auth.UPDATE("test", "okkk");
+    dispatch.auth.asyncLogin(credentials);
   };
 
   return (
     <div className="d-flex justify-content-center">
       <Form className="form-signin" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Email address {auth.token}</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"

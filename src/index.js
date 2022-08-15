@@ -5,11 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { init } from "@rematch/core";
-import * as models from "./models/counter";
+import models from "./models";
 // import { count } from "./models/counter";
 
 const store = init({
   models,
+  plugins: [],
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
