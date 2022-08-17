@@ -8,6 +8,8 @@ const http = axios.create({
     Accept: "application/json",
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
+    "X-Requested-With": "XMLHttpRequest",
+    "X-CSRF-TOKEN": "rEhGfZhMW5eGdI2EffF0g5kgYUwUItrjfUIDx73n",
   },
 });
 

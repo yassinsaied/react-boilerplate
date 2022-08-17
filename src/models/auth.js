@@ -8,7 +8,6 @@ export const auth = {
     email: "",
     token: "",
     message: "",
-    test: "aaa",
   },
 
   reducers: {
@@ -19,7 +18,6 @@ export const auth = {
       };
     },
     loginSuccess(state, data) {
-      console.log(data);
       return {
         ...state,
         id: data.Id,
@@ -33,8 +31,24 @@ export const auth = {
     loginFail(state) {
       return {
         ...state,
+        id: null,
         logged: false,
-        message: "login failed",
+        name: "",
+        email: "",
+        token: "",
+        message: "invalid credentials",
+      };
+    },
+
+    logout(state) {
+      return {
+        ...state,
+        id: null,
+        logged: false,
+        name: "",
+        email: "",
+        token: "",
+        message: "",
       };
     },
   },
@@ -45,9 +59,9 @@ export const auth = {
         let resData = await login(credentials);
         // console.log(resData.data.data);
         dispatch.auth.loginSuccess(resData.data.data);
-      } catch (err) {
-        //  dispatch.auth.loginFail(resData.data); Handle Error Here
-        console.error(err);
+      } catch (error) {
+        dispatch.auth.loginFail();
+        console.log(error);
       }
     },
   }),

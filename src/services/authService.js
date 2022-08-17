@@ -2,6 +2,7 @@ import http from "./http";
 import { API_ATH } from "./api_endpoint";
 
 export const login = async (credentials) => {
+  console.log(credentials);
   try {
     let response = await http.post(API_ATH.LOGIN, credentials);
 

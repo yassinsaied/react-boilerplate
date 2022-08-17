@@ -1,5 +1,5 @@
 export const API_ATH = {
-  LOGIN: "/authaccount/login",
+  LOGIN: "/auth/login",
   REGISTER: "/authaccount/registration",
   USERS: "/users ",
 };

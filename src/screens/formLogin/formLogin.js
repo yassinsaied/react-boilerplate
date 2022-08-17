@@ -1,16 +1,24 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 // import { login } from "../../services/authService";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const dispatch = useDispatch();
+  let navigate = useNavigate();
   const { auth } = useSelector((state) => state);
+
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
+
+  // useEffect(() => {
+  //   logged && navigate("/counter", { replace: true });
+  // }, []); // eslint-disable-line
 
   const onChangeHandler = (event) => {
     const newValue = event.target.value;
@@ -24,10 +32,14 @@ function LoginForm() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch.auth.UPDATE("test", "okkk");
-    dispatch.auth.asyncLogin(credentials);
+    try {
+      await dispatch.auth.asyncLogin(credentials);
+      navigate("/counter", { replace: true });
+    } catch (err) {
+      dispatch.auth.loginFail();
+    }
   };
 
   return (
@@ -54,7 +66,9 @@ function LoginForm() {
             onChange={(e) => onChangeHandler(e)}
           />
         </Form.Group>
-
+        <Form.Control.Feedback type="invalid">
+          {auth.message}
+        </Form.Control.Feedback>
         <Button variant="primary" type="submit">
           Submit
         </Button>
