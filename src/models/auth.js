@@ -59,9 +59,9 @@ export const auth = {
         let resData = await login(credentials);
         // console.log(resData.data.data);
         dispatch.auth.loginSuccess(resData.data.data);
-      } catch (error) {
+      } catch (errors) {
         dispatch.auth.loginFail();
-        console.log(error);
+        console.log(errors.message);
       }
     },
   }),

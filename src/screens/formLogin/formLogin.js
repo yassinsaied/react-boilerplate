@@ -36,7 +36,7 @@ function LoginForm() {
     event.preventDefault();
     try {
       await dispatch.auth.asyncLogin(credentials);
-      navigate("/counter", { replace: true });
+      // navigate("/counter", { replace: true });
     } catch (err) {
       dispatch.auth.loginFail();
     }

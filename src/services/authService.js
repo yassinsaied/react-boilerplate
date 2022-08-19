@@ -1,22 +1,22 @@
-import http from "./http";
+import { httpLogin } from "./http";
 import { API_ATH } from "./api_endpoint";
 
 export const login = async (credentials) => {
-  console.log(credentials);
   try {
-    let response = await http.post(API_ATH.LOGIN, credentials);
+    let response = await httpLogin.post(API_ATH.LOGIN, credentials);
+    console.log(response);
 
     return response;
-  } catch (err) {
+  } catch (errors) {
     // Handle Error Here
-    console.error(err);
+    console.error(errors);
   }
 };
 
 export const register = async (credentials) => {
   try {
     // console.log(API_ATH.REGISTER);
-    let response = await http.get(API_ATH.REGISTER, credentials);
+    let response = await httpLogin.get(API_ATH.REGISTER, credentials);
 
     return response;
   } catch (err) {
