@@ -20,15 +20,16 @@ export const auth = {
     loginSuccess(state, data) {
       return {
         ...state,
-        id: data.Id,
         logged: true,
-        name: data.Name,
-        email: data.Email,
-        token: data.Token,
-        message: "successful login",
+        isAdmin: data.isAdmin,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        token: data.token,
+        message: "",
       };
     },
-    loginFail(state) {
+    loginFail(state, messageError) {
       return {
         ...state,
         id: null,
@@ -36,7 +37,8 @@ export const auth = {
         name: "",
         email: "",
         token: "",
-        message: "invalid credentials",
+        message: messageError,
+        // message: data.response.message,
       };
     },
 
@@ -57,11 +59,11 @@ export const auth = {
     async asyncLogin(credentials) {
       try {
         let resData = await login(credentials);
-        // console.log(resData.data.data);
+        console.log(resData.data.data);
         dispatch.auth.loginSuccess(resData.data.data);
       } catch (errors) {
-        dispatch.auth.loginFail();
-        console.log(errors.message);
+        dispatch.auth.loginFail(errors.response.data.message);
+        console.log(errors.response.data.message);
       }
     },
   }),

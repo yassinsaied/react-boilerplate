@@ -1,8 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-// import { login } from "../../services/authService";
+import { useState, useEffect } from "react";
+import { Alert, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -17,8 +14,10 @@ function LoginForm() {
   });
 
   // useEffect(() => {
-  //   logged && navigate("/counter", { replace: true });
-  // }, []); // eslint-disable-line
+  //   if (auth.logged) {
+  //     navigate.goBack(-1);
+  //   }
+  // }, [auth.logged]); // eslint-disable-line
 
   const onChangeHandler = (event) => {
     const newValue = event.target.value;
@@ -36,7 +35,7 @@ function LoginForm() {
     event.preventDefault();
     try {
       await dispatch.auth.asyncLogin(credentials);
-      // navigate("/counter", { replace: true });
+      // navigate.goBack(-1);
     } catch (err) {
       dispatch.auth.loginFail();
     }
@@ -46,7 +45,7 @@ function LoginForm() {
     <div className="d-flex justify-content-center">
       <Form className="form-signin" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address {auth.token}</Form.Label>
+          <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -66,9 +65,13 @@ function LoginForm() {
             onChange={(e) => onChangeHandler(e)}
           />
         </Form.Group>
-        <Form.Control.Feedback type="invalid">
-          {auth.message}
-        </Form.Control.Feedback>
+
+        {auth.message !== "" && (
+          <Alert key={"danger"} variant={"danger"}>
+            {auth.message}
+          </Alert>
+        )}
+
         <Button variant="primary" type="submit">
           Submit
         </Button>

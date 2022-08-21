@@ -7,6 +7,7 @@ import FormLogin from "../screens/formLogin/formLogin";
 import FormRegister from "../screens/formRegister/formRegister";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Counter from "../screens/counter/counter";
+import ProtectedRoute from "../components/protectedRoute/protectedRoute";
 
 function Navigation() {
   return (
@@ -18,7 +19,14 @@ function Navigation() {
             <Route path="/" element={<HomeContainer />} />
             <Route path="/login" element={<FormLogin />} />
             <Route path="/register" element={<FormRegister />} />
-            <Route path="/counter" element={<Counter />} />
+            <Route
+              path="/counter"
+              element={
+                <ProtectedRoute>
+                  <Counter />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
         <Footer />

@@ -2,15 +2,10 @@ import { httpLogin } from "./http";
 import { API_ATH } from "./api_endpoint";
 
 export const login = async (credentials) => {
-  try {
-    let response = await httpLogin.post(API_ATH.LOGIN, credentials);
-    console.log(response);
+  let response = await httpLogin.post(API_ATH.LOGIN, credentials);
+  console.log(response);
 
-    return response;
-  } catch (errors) {
-    // Handle Error Here
-    console.error(errors);
-  }
+  return response;
 };
 
 export const register = async (credentials) => {
