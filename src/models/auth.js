@@ -59,11 +59,11 @@ export const auth = {
     async asyncLogin(credentials) {
       try {
         let resData = await login(credentials);
-        console.log(resData.data.data);
         dispatch.auth.loginSuccess(resData.data.data);
+        return true;
       } catch (errors) {
         dispatch.auth.loginFail(errors.response.data.message);
-        console.log(errors.response.data.message);
+        return false;
       }
     },
   }),

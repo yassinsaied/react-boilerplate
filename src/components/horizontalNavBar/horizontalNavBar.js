@@ -22,6 +22,8 @@ function HorizontalNavBar() {
               <Nav.Link href="/">Home</Nav.Link>
 
               <Nav.Link href="/counter">Counter</Nav.Link>
+              <Nav.Link href="/checkout">Checkout</Nav.Link>
+
               <Nav.Link href="/register">Register</Nav.Link>
             </Nav>
 

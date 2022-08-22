@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Alert, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -13,11 +13,12 @@ function LoginForm() {
     password: "",
   });
 
-  // useEffect(() => {
-  //   if (auth.logged) {
-  //     navigate.goBack(-1);
-  //   }
-  // }, [auth.logged]); // eslint-disable-line
+  //useEffect(() => {
+  // if (auth.logged) {
+  //   navigate.goBack();
+  // }
+  // console.log(navigate.goBack());
+  //}, []); // eslint-disable-line
 
   const onChangeHandler = (event) => {
     const newValue = event.target.value;
@@ -33,15 +34,13 @@ function LoginForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      await dispatch.auth.asyncLogin(credentials);
-      // navigate.goBack(-1);
-    } catch (err) {
-      dispatch.auth.loginFail();
-    }
+    let res = await dispatch.auth.asyncLogin(credentials);
+    res && navigate(-1);
   };
 
-  return (
+  return auth.logged ? (
+    <Navigate to="/home" replace />
+  ) : (
     <div className="d-flex justify-content-center">
       <Form className="form-signin" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
