@@ -1,0 +1,136 @@
+.card {
+  border: none;
+  border-radius: 20px;
+}
+.form-control {
+  border-radius: 7px;
+  border: 1.5px solid #e3e6ed;
+}
+input.form-control:focus {
+  box-shadow: none;
+  border: 1.5px solid #e3e6ed;
+  background-color: #f7f8fd;
+  letter-spacing: 1px;
+}
+
+/* ===== Career ===== */
+
+.filter-result .job-box {
+  -webkit-box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
+  box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
+  border-radius: 10px;
+  padding: 10px 35px;
+}
+
+.job-box ul,
+.job-box .title-university {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.job-box .title-university {
+  font-size: 17px;
+}
+
+.job-box ul li {
+  list-style: none;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.list-disk li:last-child {
+  margin-bottom: 0;
+}
+
+.job-box .img-holder {
+  height: 65px;
+  width: 65px;
+  background-color: #4e63d7;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(78, 99, 215, 0.9)),
+    to(#5a85dd)
+  );
+  background-image: linear-gradient(
+    to right,
+    rgba(78, 99, 215, 0.9) 0%,
+    #5a85dd 100%
+  );
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 65px;
+}
+
+.career-title {
+  background-color: #4e63d7;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(78, 99, 215, 0.9)),
+    to(#5a85dd)
+  );
+  background-image: linear-gradient(
+    to right,
+    rgba(78, 99, 215, 0.9) 0%,
+    #5a85dd 100%
+  );
+}
+
+.job-overview {
+  -webkit-box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
+  box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
+  border-radius: 10px;
+}
+
+@media (min-width: 992px) {
+  .job-overview {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+  }
+}
+
+.job-overview .job-detail ul {
+  margin-bottom: 28px;
+}
+
+.job-overview .job-detail ul li {
+  opacity: 0.75;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.job-content ul li {
+  font-weight: 600;
+  opacity: 0.75;
+  border-bottom: 1px solid #ccc;
+}
+
+@media (min-width: 768px) {
+  .job-content ul li {
+    border-bottom: 0;
+    padding: 0;
+  }
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}

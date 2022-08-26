@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Counter from "../screens/counter/counter";
 import Checkout from "../screens/checkout/checkout";
 import ProtectedRoute from "../components/protectedRoute/protectedRoute";
+import VerticalSearch from "../screens/verticalSearch/verticalSearch";
 
 function Navigation() {
   return (
@@ -20,6 +21,7 @@ function Navigation() {
             <Route path="/" element={<HomeContainer />} />
             <Route path="/login" element={<FormLogin />} />
             <Route path="/register" element={<FormRegister />} />
+            <Route path="/university" element={<VerticalSearch />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/counter" element={<Counter />} />
               <Route path="/checkout" element={<Checkout />} />

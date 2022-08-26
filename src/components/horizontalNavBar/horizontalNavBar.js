@@ -25,6 +25,7 @@ function HorizontalNavBar() {
               <Nav.Link href="/checkout">Checkout</Nav.Link>
 
               <Nav.Link href="/register">Register</Nav.Link>
+              <Nav.Link href="/university">University</Nav.Link>
             </Nav>
 
             <Nav className="ms-auto">
