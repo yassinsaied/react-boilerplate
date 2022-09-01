@@ -1,10 +1,14 @@
-import { httpUniversity, httpJob, httpZoo } from "./http";
-import axios from "axios";
+import { httpUniversity, httpJob, httpFuturama } from "./http";
 
 export const getUniversity = async (country) => {
-  let universities = await httpZoo.get("animals/rand/10");
-  console.log("checking the zoo", universities);
+  let universities = await httpUniversity.get(`search?country=${country}`);
   return universities;
+};
+
+export const getFuturama = async (typeFuturama) => {
+  let result = await httpFuturama.get(`${typeFuturama}`);
+
+  return result;
 };
 
 export const getJobs = async () => {

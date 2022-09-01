@@ -181,3 +181,9 @@ export const COUNTRY_LISTE = [
   { value: "Zambia", label: "Zambia" },
   { value: "Zimbabwe", label: "Zimbabwe" },
 ];
+
+export const FUTURAMA_LIST = [
+  { value: "characters", label: "Characters" },
+  { value: "cast", label: "Cast" },
+  { value: "episodes", label: "Episodes" },
+];
