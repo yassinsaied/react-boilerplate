@@ -1,7 +1,8 @@
 import React from "react";
 import Footer from "../components/footer/footer";
 import HorizontalNavBar from "../components/horizontalNavBar/horizontalNavBar";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+
 import HomeContainer from "../screens/homeContainer/homeContainer";
 import FormLogin from "../screens/formLogin/formLogin";
 import FormRegister from "../screens/formRegister/formRegister";
